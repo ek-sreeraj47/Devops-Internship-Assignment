@@ -11,24 +11,31 @@ This project sets up two microservices behind an Nginx reverse proxy using Docke
    ```bash
    git clone https://github.com/ek-sreeraj47/Devops-Internship-Assignment.git
    cd Devops-Internship-Assignment
-Build & run with Docker Compose:
-docker-compose up --build
 
--> How Routing Works
-Nginx listens on port 8080 and routes traffic:
+2. **Build & run with Docker Compose:**
 
-URL	Forwards to
-/service1/	service1:8001
-/service2/	service2:8002
+   ```bash
+   docker-compose up --build
+   ```
+3. **How Routing Works**
 
-Nginx strips the prefix (/service1, /service2) before forwarding.
+   Nginx listens on port 8080 and routes traffic:
 
-Bonus: Health Checks
-Both microservices include Docker health checks to ensure they’re running:
+4. **URL	Forwards to**
 
-Service 1: /ping
+   /service1/	service1:8001
 
-Service 2: /ping
+   /service2/	service2:8002
 
--> View the full docker-compose.yml:
-url:  https://github.com/ek-sreeraj47/Devops-Internship-Assignment/blob/master/docker-compose.yml
+   Nginx strips the prefix (/service1, /service2) before forwarding.
+
+5. **Bonus: Health Checks**
+
+   Both microservices include Docker health checks to ensure they’re running:
+
+   Service 1: /ping
+   Service 2: /ping
+
+6. **View the full docker-compose.yml:**
+   
+   url:  https://github.com/ek-sreeraj47/Devops-Internship-Assignment/blob/master/docker-compose.yml
