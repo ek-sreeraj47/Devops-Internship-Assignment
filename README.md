@@ -1,52 +1,34 @@
-# 🚀 Multi-Service App with Nginx Reverse Proxy
+DevOps Internship Assignment – Multi-Service App with Nginx
 
-This project includes two lightweight microservices and an Nginx reverse proxy, all containerized using Docker Compose.
+This project sets up two microservices behind an Nginx reverse proxy using Docker Compose.
 
 ---
 
-## ✅ Setup Instructions
+## Setup Instructions
 
-1. **Clone the project** and navigate into the folder:
+1. **Clone the repo**:
 
    ```bash
-   git clone <your-repo-url>
-   cd project-root
-   ```
+   git clone https://github.com/ek-sreeraj47/Devops-Internship-Assignment.git
+   cd Devops-Internship-Assignment
+Build & run with Docker Compose:
+docker-compose up --build
 
-2. **Build and run the containers**:
+-> How Routing Works
+Nginx listens on port 8080 and routes traffic:
 
-   ```bash
-   docker-compose up --build
-   ```
+URL	Forwards to
+/service1/	service1:8001
+/service2/	service2:8002
 
-3. **Access the app** in your browser or via `curl`:
-   - http://localhost:8080/service1/ping
-   - http://localhost:8080/service2/hello
+Nginx strips the prefix (/service1, /service2) before forwarding.
 
----
+Bonus: Health Checks
+Both microservices include Docker health checks to ensure they’re running:
 
-## 🌐 How Routing Works
+Service 1: /ping
 
-Nginx listens on port **8080** and routes traffic based on the URL path:
+Service 2: /ping
 
-| Path Prefix        | Proxied To          |
-|--------------------|---------------------|
-| `/service1/`       | `service1:8001`     |
-| `/service2/`       | `service2:8002`     |
-
-Nginx removes the `/service1` or `/service2` prefix before forwarding to the target service.
-
----
-
-## ⭐ Bonus: Health Checks
-
-Both services have Docker health checks configured to ensure reliability:
-
-- **Service 1**: `http://localhost:8001/ping`
-- **Service 2**: `http://localhost:8002/ping`
-
-Docker automatically checks the service health at regular intervals.
-
----
-
-Feel free to extend this with logging, CI/CD, or cloud deployment.
+-> View the full docker-compose.yml:
+url:  https://github.com/ek-sreeraj47/Devops-Internship-Assignment/blob/master/docker-compose.yml
