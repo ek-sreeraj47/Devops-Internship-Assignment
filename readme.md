@@ -50,4 +50,3 @@ Docker automatically checks the service health at regular intervals.
 ---
 
 Feel free to extend this with logging, CI/CD, or cloud deployment.
-
